@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Game from './components/Game';
+import "./styles/App.css";
 
 function App() {
+  const venues = [
+    'Madison Square Garden',
+    'Nissan Stadium',
+    'Orchard Park',
+    'Arrowhead Stadium',
+    'The White House'
+  ];
+  const venue = venues[Math.floor(Math.random() * venues.length)];
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Game venue={venue}/>
   );
 }
 
