@@ -5,16 +5,15 @@ const Team = ({ name, logo }) => {
   let [score, setScore] = useState(0);
 
   // functions
-  const shoot = (e) => {
-    console.log("Shot taken");
+  const shootHandler = (e) => {
+    console.log(`The ${name} take a shot...`);
     setShotsTaken(shotsTaken + 1);
     const percentage = 50;
     const random = Math.ceil(Math.random(0, 1) * 100);
-    console.log(random);
     if (percentage >= random) {
-        console.log('Score!');
-        setScore(score + 1);
-    }
+      console.log("and they score!");
+      setScore(score + 1);
+    } else console.log('...and they miss.')
   };
 
   return (
@@ -23,7 +22,7 @@ const Team = ({ name, logo }) => {
       <img className="logo" src={logo} alt=""></img>
       <p>Shots taken: {shotsTaken}</p>
       <p>Score: {score}</p>
-      <button className="shootButton" onClick={() => shoot()}>
+      <button className="shootButton" onClick={shootHandler}>
         Shoot
       </button>
     </div>
