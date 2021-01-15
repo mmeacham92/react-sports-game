@@ -10,28 +10,24 @@ body {
     justify-content: center;
 }
 
-#root {
-    width: 100%;
-}
-
 .game__container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    margin-top: 2rem;
 }
 
 .banner {
     font-size: 3rem;
-    margin: 20px 0;
+    margin-bottom: 20px;
 }
 
-#teams__container {
+.teams__container {
     display: flex;
     max-width: 800px;
     justify-content: space-evenly;
     align-items: center;
-
 }
 
 .team {
@@ -45,4 +41,20 @@ body {
 .logo {
     width: 200px;
     height: auto;
+}
+
+.hide {
+    display: none;
+}
+
+button {
+    padding: 10px;
+}
+
+.shoot__button {
+    margin-top: 1.5rem;
+}
+
+.venue__button {
+    margin: 2rem 0;
 }
