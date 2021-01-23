@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import Team from "./Team";
-import Scoreboard from './Scoreboard';
+import Scoreboard from "./Scoreboard";
+import Header from "./Header";
+import TeamsContainer from "./TeamsContainer";
 
 const Game = ({ venue, venues, setVenue, allTeams }) => {
   let [shotsTakenOne, setShotsTakenOne] = useState(0);
@@ -49,34 +50,26 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
   };
 
   return (
-    <div className="container">
-      <Scoreboard />
-      <div className="game__container">
-      <h2>Welcome to</h2>
-      <h1 className="banner">{venue}</h1>
-      <button className="reset__button" onClick={resetGame}>
-        Reset Game
-      </button>
-      <h4 className="hide num__resets">Number of resets: {numResets}</h4>
-      <div className="teams__container">
-        <Team
-          name={team1}
-          logo={`./images/teams/${team1}.png`}
-          shotsTaken={shotsTakenOne}
-          score={scoreOne}
-          setShotsTaken={setShotsTakenOne}
-          setScore={setScoreOne}
-        />
-        <h3>VS</h3>
-        <Team
-          name={team2}
-          logo={`./images/teams/${team2}.png`}
-          shotsTaken={shotsTakenTwo}
-          score={scoreTwo}
-          setShotsTaken={setShotsTakenTwo}
-          setScore={setScoreTwo}
-        />
-      </div>
+    <div className="game__container">
+      <Header venue={venue} resetGame={resetGame} numResets={numResets} />
+      <Scoreboard
+        team1={team1}
+        team2={team2}
+        scoreOne={scoreOne}
+        scoreTwo={scoreTwo}
+      />
+      <TeamsContainer
+        team1={team1}
+        team2={team2}
+        shotsTakenOne={shotsTakenOne}
+        shotsTakenTwo={shotsTakenTwo}
+        scoreOne={scoreOne}
+        scoreTwo={scoreTwo}
+        setScoreOne={setScoreOne}
+        setScoreTwo={setScoreTwo}
+        setShotsTakenOne={setShotsTakenOne}
+        setShotsTakenTwo={setShotsTakenTwo}
+      />
       <button className="venue__button" onClick={changeVenueHandler}>
         Change Venue
       </button>
@@ -84,9 +77,6 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
       <audio id="swish__sound" src="./audio/swish.mp3"></audio>
       <audio id="brick__sound" src="./audio/brick.wav"></audio>
     </div>
-    </div>
-    
-    
   );
 };
 

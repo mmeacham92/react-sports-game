@@ -28,7 +28,7 @@ const Team = ({ name, logo, shotsTaken, score, setScore, setShotsTaken }) => {
       <h1>{name}</h1>
       <img className="logo" src={logo} alt=""></img>
       <p>Field Goals Attempted: {shotsTaken}</p>
-      <p>Field Goals Made: {score}</p>
+      {/* <p>Field Goals Made: {score}</p> */}
       <p className={`${name}__score__percentage score__percentage hide`}>
         Field Goal Percentage: {((score / shotsTaken) * 100).toFixed(2)} %
       </p>

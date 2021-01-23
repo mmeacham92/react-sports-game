@@ -16,11 +16,39 @@ body {
     width: 60%;
 }
 
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 2rem;
+}
+
 .scoreBoard {
     background: white;
     text-align: center;
     margin-top: 1rem;
+    width: 50%;
+    height: 200px;
+    display: flex;
+    justify-content: space-around;
 }
+
+.score__div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.team__name {
+    /* margin-bottom: 5rem; */
+}
+
+.team__score {
+    font-size: 8rem;
+}
+
 
 .game__container {
     display: flex;
@@ -29,7 +57,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin: 2rem 0;
-    background: white;
     padding-top: 2rem;
     min-width: 600px;
 }
@@ -54,6 +81,8 @@ body {
     align-items: center;
     justify-content: center;
     margin: 20px;
+    background: white;
+    padding: 2rem;
 }
 
 .logo {
