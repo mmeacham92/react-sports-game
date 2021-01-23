@@ -7,7 +7,9 @@ const Team = ({ name, logo, shotsTaken, score, setScore, setShotsTaken }) => {
   // functions
 
   const shootHandler = (e) => {
-    document.querySelector(`.${name}__score__percentage`).classList.remove("hide");
+    document
+      .querySelector(`.${name}__score__percentage`)
+      .classList.remove("hide");
     setShotsTaken(shotsTaken + 1);
     const percentage = 50;
     const random = Math.ceil(Math.random(0, 1) * 100);
@@ -16,8 +18,8 @@ const Team = ({ name, logo, shotsTaken, score, setScore, setShotsTaken }) => {
       swishSound.play();
       setScore(score + 1);
     } else {
-      const brickSound = document.querySelector('#brick__sound');
-      brickSound.play(); 
+      const brickSound = document.querySelector("#brick__sound");
+      brickSound.play();
     }
   };
 

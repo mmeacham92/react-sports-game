@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Team from "./Team";
+import Scoreboard from './Scoreboard';
 
 const Game = ({ venue, venues, setVenue, allTeams }) => {
   let [shotsTakenOne, setShotsTakenOne] = useState(0);
@@ -48,7 +49,9 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
   };
 
   return (
-    <div className="game__container">
+    <div className="container">
+      <Scoreboard />
+      <div className="game__container">
       <h2>Welcome to</h2>
       <h1 className="banner">{venue}</h1>
       <button className="reset__button" onClick={resetGame}>
@@ -58,7 +61,7 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
       <div className="teams__container">
         <Team
           name={team1}
-          logo={`./images/${team1}.png`}
+          logo={`./images/teams/${team1}.png`}
           shotsTaken={shotsTakenOne}
           score={scoreOne}
           setShotsTaken={setShotsTakenOne}
@@ -67,7 +70,7 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
         <h3>VS</h3>
         <Team
           name={team2}
-          logo={`./images/${team2}.png`}
+          logo={`./images/teams/${team2}.png`}
           shotsTaken={shotsTakenTwo}
           score={scoreTwo}
           setShotsTaken={setShotsTakenTwo}
@@ -81,6 +84,9 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
       <audio id="swish__sound" src="./audio/swish.mp3"></audio>
       <audio id="brick__sound" src="./audio/brick.wav"></audio>
     </div>
+    </div>
+    
+    
   );
 };
 
