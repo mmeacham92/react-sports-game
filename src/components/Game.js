@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Scoreboard from "./Scoreboard";
 import Header from "./Header";
 import TeamsContainer from "./TeamsContainer";
@@ -8,11 +8,11 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
   let [shotsTakenTwo, setShotsTakenTwo] = useState(0);
   let [scoreOne, setScoreOne] = useState(0);
   let [scoreTwo, setScoreTwo] = useState(0);
-  let [numResets, setNumResets] = useState(0);
+
   const [team1, setTeam1] = useState(
     allTeams[Math.floor(Math.random() * allTeams.length)]
   );
-  const remainingTeams = allTeams.filter((team) => team !== team1);
+  const [remainingTeams, setRemainingTeams] = useState(allTeams.filter((team) => team !== team1));
   const [team2, setTeam2] = useState(
     remainingTeams[Math.floor(Math.random() * remainingTeams.length)]
   );
@@ -26,32 +26,29 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
     );
   };
 
-  const resetGame = () => {
-    const scorePercentageDivs = document.querySelectorAll(".score__percentage");
-    scorePercentageDivs.forEach((div) => div.classList.add("hide"));
-    resetScores();
-    document.querySelector(".num__resets").classList.remove("hide");
-    changeTeams();
-    setNumResets(numResets + 1);
-  };
-
-  const resetScores = () => {
-    setShotsTakenOne(0);
-    setShotsTakenTwo(0);
-    setScoreOne(0);
-    setScoreTwo(0);
-  };
-
-  const changeTeams = async () => {
+  const changeTeams = () => {
     setTeam1(allTeams[Math.floor(Math.random() * allTeams.length)]);
-    await setTeam2(
-      remainingTeams[Math.floor(Math.random() * remainingTeams.length)]
-    );
+    
   };
+
+  useEffect(() => {
+    setRemainingTeams(allTeams.filter(team => team !== team1));
+  }, [allTeams, team1]);
+
+  useEffect(() => {
+    setTeam2(remainingTeams[Math.floor(Math.random() * remainingTeams.length)]);
+  }, [remainingTeams]);
 
   return (
     <div className="game__container">
-      <Header venue={venue} resetGame={resetGame} numResets={numResets} />
+      <Header
+        venue={venue}
+        setScoreOne={setScoreOne}
+        setScoreTwo={setScoreTwo}
+        changeTeams={changeTeams}
+        setShotsTakenOne={setShotsTakenOne}
+        setShotsTakenTwo={setShotsTakenTwo}
+      />
       <Scoreboard
         team1={team1}
         team2={team2}
