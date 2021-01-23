@@ -57,7 +57,7 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
       <button className="reset__button" onClick={resetGame}>
         Reset Game
       </button>
-      <p className="hide num__resets">Number of resets: {numResets}</p>
+      <h4 className="hide num__resets">Number of resets: {numResets}</h4>
       <div className="teams__container">
         <Team
           name={team1}
