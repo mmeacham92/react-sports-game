@@ -28,7 +28,6 @@ const Game = ({ venue, venues, setVenue, allTeams }) => {
 
   const changeTeams = () => {
     setTeam1(allTeams[Math.floor(Math.random() * allTeams.length)]);
-    
   };
 
   useEffect(() => {
