@@ -1,6 +1,7 @@
 # A Simple ReactJS Sports Game!
 
-Choose between two of your favorite teams to see which has the better shot!
+Choose between two of your favorite teams to see which has the better field goal percentage!
+(#titanup, #chiefskingdom)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
